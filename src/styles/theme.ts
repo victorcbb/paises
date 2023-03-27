@@ -1,8 +1,7 @@
 export const defaultTheme = {
   FONT_WEIGHTS: {
-    light: 300,
-    semiBold: 600,
-    extraBold: 800,
+    regular: 400,
+    Bold: 700,
   },
 
   COLORS: {

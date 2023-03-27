@@ -14,4 +14,20 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Nunito Sans', sans-serif;
     -webkit-font-smoothing: antialiased;
   }
+
+  body, input, textarea {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: ${({ theme }) => theme.FONT_WEIGHTS.regular};    
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  input[type=text] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
 `
