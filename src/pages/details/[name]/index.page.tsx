@@ -1,4 +1,5 @@
 import { BackButton } from '@/components/BackButton'
+import { BorderCountryButton } from '@/components/BorderCountryButton/intex'
 import { Header } from '@/components/Header'
 import { api } from '@/services/api'
 import { TranslateRegionsName } from '@/utils/translateRegionsName'
@@ -28,7 +29,7 @@ interface DetailsProps {
     currency: string
     lenguages: string
     flagURL: string
-    borders: string[]
+    borders: string[] | undefined
   }
 }
 
@@ -102,9 +103,10 @@ export default function Details({ country }: DetailsProps) {
             <Borders>
               <strong>Fronteiras:</strong>
               <div>
-                {country.borders.map((border) => (
-                  <span key={border}>{border}</span>
-                ))}
+                {country.borders &&
+                  country.borders.map((border) => (
+                    <BorderCountryButton key={border} text={border} />
+                  ))}
               </div>
             </Borders>
           </BlockInfos>
@@ -134,7 +136,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     flags: {
       png: string
     }
-    borders: string[]
+    borders: string[] | null
   }
 
   const country = await api.get(`/translation/${countryName}`)
@@ -175,7 +177,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
         currency: currencyAcronyn[1],
         lenguages,
         flagURL: flags.png,
-        borders,
+        borders: borders === undefined ? null : borders,
       },
     },
   }

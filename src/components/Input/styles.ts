@@ -19,6 +19,7 @@ export const InputContainer = styled.div`
   }
 
   > input {
+    width: 100%;
     background: transparent;
     border: none;
     line-height: 1.375rem;

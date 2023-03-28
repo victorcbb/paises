@@ -81,18 +81,6 @@ export const Borders = styled.section`
     display: flex;
     flex-wrap: wrap;
     gap: 0.75rem;
-
-    span {
-      width: 5rem;
-      height: 1.875rem;
-
-      border: 1px solid ${({ theme }) => theme.COLORS.gray900};
-      border-radius: 4px;
-
-      text-align: center;
-      font-size: 1.125rem;
-      line-height: 1.75rem;
-    }
   }
 
   @media (min-width: 1440px) {

@@ -19,7 +19,7 @@ export const CardCountry = memo(function CardCountry({
   flag,
 }: CardCountryProps) {
   return (
-    <CardCountryContainer>
+    <CardCountryContainer href={`/details/${name}`}>
       <Image
         src={flag}
         alt={`bandeira do(a) ${name}`}

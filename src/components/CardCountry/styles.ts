@@ -1,11 +1,14 @@
+import Link from 'next/link'
 import styled from 'styled-components'
 
-export const CardCountryContainer = styled.div`
+export const CardCountryContainer = styled(Link)`
   width: 16.875rem;
   height: 21.1875rem;
 
   display: flex;
   flex-direction: column;
+
+  color: ${({ theme }) => theme.COLORS.gray900};
 
   border-radius: 8px;
   box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.25);

@@ -29,7 +29,8 @@ interface CoutryProps {
 
 export default function Home() {
   const [coutries, setCountries] = useState<CoutryProps[]>([])
-  const { search } = useSearch()
+  const [filteredCoutries, setFilteredCountries] = useState<CoutryProps[]>([])
+  const { search, region } = useSearch()
 
   useEffect(() => {
     async function fetchCountries() {
@@ -37,7 +38,10 @@ export default function Home() {
         try {
           const response = await api.get(`/translation/${search}`)
 
-          return setCountries(response.data)
+          setCountries(response.data)
+
+          setFilteredCountries([])
+          return
         } catch (error) {
           alert('Sem resultados')
         }
@@ -48,8 +52,16 @@ export default function Home() {
       return setCountries(response.data)
     }
 
+    if (region.length > 1) {
+      const response = coutries.filter((country) => country.region === region)
+
+      setFilteredCountries(response)
+    } else if (region === '') {
+      setFilteredCountries([])
+    }
+
     fetchCountries()
-  }, [search])
+  }, [search, region, coutries])
 
   return (
     <HomeContainer>
@@ -60,16 +72,27 @@ export default function Home() {
           <SelectIcon />
         </SearchWrapper>
         <CardCountryWrapper>
-          {coutries.map((country, index) => (
-            <CardCountry
-              key={index}
-              name={country.translations.por.common}
-              capital={country.capital}
-              population={country.population}
-              region={country.region}
-              flag={country.flags.png}
-            />
-          ))}
+          {filteredCoutries.length > 0
+            ? filteredCoutries.map((country, index) => (
+                <CardCountry
+                  key={index}
+                  name={country.translations.por.common}
+                  capital={country.capital}
+                  population={country.population}
+                  region={country.region}
+                  flag={country.flags.png}
+                />
+              ))
+            : coutries.map((country, index) => (
+                <CardCountry
+                  key={index}
+                  name={country.translations.por.common}
+                  capital={country.capital}
+                  population={country.population}
+                  region={country.region}
+                  flag={country.flags.png}
+                />
+              ))}
         </CardCountryWrapper>
       </HomeContent>
     </HomeContainer>

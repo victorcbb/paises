@@ -1,3 +1,4 @@
+import { useSearch } from '@/context/SearchContext'
 import { FiChevronDown } from 'react-icons/fi'
 import {
   Content,
@@ -12,10 +13,16 @@ import {
 } from './styles'
 
 export function SelectIcon() {
+  const { setRegion } = useSearch()
+
+  async function handleValueChange(selectedRegion: string) {
+    setRegion(selectedRegion)
+  }
+
   return (
-    <Root>
+    <Root onValueChange={handleValueChange} defaultValue="">
       <Trigger>
-        <Value placeholder="Filtre pela região" />
+        <Value />
         <Icon>
           <FiChevronDown size={28} />
         </Icon>
@@ -42,6 +49,9 @@ export function SelectIcon() {
             </Item>
             <Item value="Oceania">
               <ItemText>Oceania</ItemText>
+            </Item>
+            <Item value="">
+              <ItemText>Filtre pela região</ItemText>
             </Item>
           </Viewport>
         </Content>
