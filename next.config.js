@@ -4,7 +4,16 @@ const nextConfig = {
   swcMinify: true,
   pageExtensions: ['page.tsx'],
   images: {
-    domains: ['restcountries.com', 'flagcdn.com'],
+    formats: ['image/avif', 'image/webp'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'upload.wikimedia.org',
+        port: '',
+        pathname: '/wikipedia/commons/thumb/**',
+      },
+    ],
+    domains: ['restcountries.com', 'flagcdn.com', 'upload.wikimedia.org'],
   },
 }
 

@@ -23,16 +23,25 @@ export function SelectIcon() {
       <Portal>
         <Content position="popper">
           <Viewport>
+            <Item value="Africa">
+              <ItemText>África</ItemText>
+            </Item>
             <Item value="Americas">
-              <ItemText>Americas</ItemText>
+              <ItemText>Américas</ItemText>
+            </Item>
+            <Item value="Asia">
+              <ItemText>Ásia</ItemText>
             </Item>
 
-            <Item value="Europa">
+            <Item value="Europe">
               <ItemText>Europa</ItemText>
             </Item>
 
-            <Item value="Asia">
-              <ItemText>Asia</ItemText>
+            <Item value="Antarctic">
+              <ItemText>Antártica</ItemText>
+            </Item>
+            <Item value="Oceania">
+              <ItemText>Oceania</ItemText>
             </Item>
           </Viewport>
         </Content>

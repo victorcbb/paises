@@ -1,6 +1,8 @@
 import { BackButton } from '@/components/BackButton'
 import { Header } from '@/components/Header'
 import { api } from '@/services/api'
+import { TranslateRegionsName } from '@/utils/translateRegionsName'
+import { TranslateSubRegionsName } from '@/utils/translateSubRegionsName'
 import { GetServerSideProps } from 'next'
 import Image from 'next/image'
 import {
@@ -20,7 +22,7 @@ interface DetailsProps {
     nativeName: string
     population: number
     region: string
-    subregion: string
+    subRegion: string
     capital: string
     tld: string
     currency: string
@@ -32,16 +34,16 @@ interface DetailsProps {
 
 export default function Details({ country }: DetailsProps) {
   const splitedLenguages = country.lenguages.split('"')
-
   const lenguages = []
-
   for (let i = 0; i <= splitedLenguages.length; i++) {
     if ((i + 1) % 4 === 0) {
       lenguages.push(splitedLenguages[i])
     }
   }
-
   const concatenatedElementsArray = lenguages.join(', ')
+
+  const translatedRegionName = TranslateRegionsName(country.region)
+  const translatedSubRegionName = TranslateSubRegionsName(country.subRegion)
 
   return (
     <DetailsContainer>
@@ -67,15 +69,15 @@ export default function Details({ country }: DetailsProps) {
                 </p>
                 <p>
                   <strong>População: </strong>
-                  {country.population}
+                  {country.population.toLocaleString('pt-BR')}
                 </p>
                 <p>
                   <strong>Região: </strong>
-                  {country.region}
+                  {translatedRegionName}
                 </p>
                 <p>
                   <strong>Sub-região: </strong>
-                  {country.subregion}
+                  {translatedSubRegionName}
                 </p>
                 <p>
                   <strong>Capital: </strong>
@@ -135,7 +137,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     borders: string[]
   }
 
-  const country = await api.get(`/name/${countryName}`)
+  const country = await api.get(`/translation/${countryName}`)
 
   if (!country) {
     return {

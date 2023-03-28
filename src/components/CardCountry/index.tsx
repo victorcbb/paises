@@ -1,31 +1,46 @@
 import Image from 'next/image'
 import { CardCountryContainer, Resume, ResumeData } from './styles'
 
-import flagGermany from '../../assets/germany.png'
+import { memo } from 'react'
 
-export function CardCountry() {
+interface CardCountryProps {
+  name: string
+  population: number
+  region: string
+  capital: string
+  flag: string
+}
+
+export const CardCountry = memo(function CardCountry({
+  name,
+  population,
+  capital,
+  region,
+  flag,
+}: CardCountryProps) {
   return (
     <CardCountryContainer>
       <Image
-        src={flagGermany}
-        alt="bandeira da Alemnha"
+        src={flag}
+        alt={`bandeira do(a) ${name}`}
         width={270}
         height={158}
+        priority
       />
       <Resume>
-        <strong>Alemanha</strong>
+        <strong>{name}</strong>
         <ResumeData>
           <span>
-            <strong>População:</strong> 81.000.000
+            <strong>População:</strong> {population.toLocaleString('pt-BR')}
           </span>
           <span>
-            <strong>Região:</strong> Europa
+            <strong>Região:</strong> {region}
           </span>
           <span>
-            <strong>Capital:</strong> Berlin
+            <strong>Capital:</strong> {capital}
           </span>
         </ResumeData>
       </Resume>
     </CardCountryContainer>
   )
-}
+})
