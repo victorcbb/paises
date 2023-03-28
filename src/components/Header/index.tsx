@@ -1,10 +1,11 @@
+import Link from 'next/link'
 import { Content, HeaderContainer } from './styles'
 
 export function Header() {
   return (
     <HeaderContainer>
       <Content>
-        <strong>Países</strong>
+        <Link href={'/'}>Países</Link>
       </Content>
     </HeaderContainer>
   )

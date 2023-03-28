@@ -22,7 +22,8 @@ export const Content = styled.div`
   max-width: 80.625rem;
   margin: 0 auto;
 
-  strong {
+  a {
+    color: ${({ theme }) => theme.COLORS.gray900};
     font-weight: ${({ theme }) => theme.FONT_WEIGHTS.Bold};
     font-size: 2rem;
     line-height: 2.75rem;

@@ -61,7 +61,7 @@ export default function Home() {
     }
 
     fetchCountries()
-  }, [search, region, coutries])
+  }, [search, region])
 
   return (
     <HomeContainer>
@@ -72,7 +72,7 @@ export default function Home() {
           <SelectIcon />
         </SearchWrapper>
         <CardCountryWrapper>
-          {filteredCoutries.length > 0
+          {filteredCoutries.length > 1
             ? filteredCoutries.map((country, index) => (
                 <CardCountry
                   key={index}
