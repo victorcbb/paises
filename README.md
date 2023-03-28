@@ -1,38 +1,36 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Países
 
-## Getting Started
+Essa aplicação web tem o objetivo de listar, seja automaticamente ou inserindo um nome no campo de pesquisa, e detalhar algumas informações de todos os países do mundo, além de navegar através da página de detalhes pelos países que fazem fronteiras com o país apresentado. Para isso foi consumida a API [REST Countries](https://restcountries.com/#endpoints-code). 
 
-First, run the development server:
+## Stacks tecnológicas:
+
+- `Typescript`
+- `React`
+- `Nextjs`
+- `Axios`
+- `Styled-components`
+- `React-icons`
+- `Radix-ui`
+
+## Começando
+
+Primeiramente você pode fazer o download da aplicação através do botão `Code` e na aba `Local` clicar em `Download ZIP`. 
+Também é possível clonar o repositório utilizando a CLI:
+
+```bash
+git clone git@github.com:victorcbb/paises.git
+```
+
+Feito isso, navegue para o diretório da aplicação e rode o comando na CLI para instalar as dependências:
+
+```bash
+npm i
+```
+
+Por fim basta utilizar o código para executar a aplicação em ambiente de desenvolvimento: 
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+com isso será possível acessar a aplicação em algum navegador utilizando o endereço [http://localhost:3000/](http://localhost:3000)
